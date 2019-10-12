@@ -1,0 +1,118 @@
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.fail;
+
+public class ProtmsAut {
+
+
+    long  start = System.currentTimeMillis();
+    private WebDriver driver;
+    private String baseUrl;
+    private boolean acceptNextAlert = true;
+    private StringBuffer verificationErrors = new StringBuffer();
+
+    @Before
+    public void setUp() throws Exception {
+
+        start =  System.currentTimeMillis();
+
+        // driver = new ChromeDriver(); //1
+
+        // driver = new FirefoxDriver(); //1
+
+
+         DesiredCapabilities capabillities = DesiredCapabilities.chrome(); //2
+        // DesiredCapabilities capabillities = DesiredCapabilities.firefox(); //2
+
+
+         driver = new RemoteWebDriver(new URL("http://admin:Zasxde90@10.77.30.99:4444/wd/hub"),capabillities); //2
+       
+        baseUrl = "https://protms.ru/";
+       // driver.manage().window().setSize(new Dimension(800,600)); //1
+        driver.manage().window().maximize(); //2
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+
+    }
+
+    @Test
+    public void testUntitProtmsAut() throws Exception {
+
+
+        driver.get(baseUrl);
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.xpath("//div[@id='app']/div/nav/div")).click();
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.linkText("Зарегистрируйтесь")).click();
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.name("email")).clear();
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.name("email")).sendKeys("234363675347@y45775656.tr");
+        TimeUnit.SECONDS.sleep(2);
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Введите e-mail'])[1]/following::span[1]")).click();
+        TimeUnit.SECONDS.sleep(2);
+        driver.close();
+
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        System.out.println("Test proceed = " + " " + (System.currentTimeMillis() - start)+ " "+" ms");
+
+        driver.quit();
+        String verificationErrorString = verificationErrors.toString();
+        if (!"".equals(verificationErrorString)) {
+            fail(verificationErrorString);
+        }
+    }
+
+    private boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    private boolean isAlertPresent() {
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
+    private String closeAlertAndGetItsText() {
+        try {
+            Alert alert = driver.switchTo().alert();
+            String alertText = alert.getText();
+            if (acceptNextAlert) {
+                alert.accept();
+            } else {
+                alert.dismiss();
+            }
+            return alertText;
+        } finally {
+            acceptNextAlert = true;
+        }
+    }
+
+
+    public void run() {
+    }
+
+    public void start() {
+    }
+
+}
