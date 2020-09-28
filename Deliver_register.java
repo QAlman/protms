@@ -35,26 +35,26 @@ public class Deliver_register {
             @Test
             public void testUntitledTestCase() throws Exception {
 
-                int o = 1;
-                long i = 1;
-                long p= 9254443300L;
-                for (i =9254443300L; i < 19254443300L; i++) {
-                long pp = p + i ;
-                 String ppp = "325325";
+
+                 int  i ;
+                 int p = 1999;
+                 for (i =1; i < 10000; i++) {
+
+
                     driver.get(baseUrl);
-                    TimeUnit.SECONDS.sleep(2);
+                    TimeUnit.SECONDS.sleep(1);
 
                     driver.findElement(By.id("mainBtn")).click();
-                   // TimeUnit.SECONDS.sleep(2);
-                   // driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/form/span/button")).click();
-                    TimeUnit.SECONDS.sleep(2);
-                    driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/form/div/input")).sendKeys( ""+i++);
+                    TimeUnit.SECONDS.sleep(1);
+                    driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/form/div/input")).clear();
+                    TimeUnit.SECONDS.sleep(1);
+                    driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/form/div/input")).sendKeys("925444" + p++);
                     TimeUnit.SECONDS.sleep(2);
                     driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/form/span/button")).click();
                     TimeUnit.SECONDS.sleep(2);
 
-                    driver.findElement(By.name("code")).click();
-                    TimeUnit.SECONDS.sleep(2);
+                  //  driver.findElement(By.name("code")).click();
+                  // TimeUnit.SECONDS.sleep(2);
                    // driver.findElement(By.name("code")).clear();
                    // TimeUnit.SECONDS.sleep(2);
                     driver.findElement(By.name("code")).sendKeys("1111");
@@ -63,7 +63,7 @@ public class Deliver_register {
                     TimeUnit.SECONDS.sleep(2);
                     driver.findElement(By.xpath("//button[@type='button']")).click();
                     TimeUnit.SECONDS.sleep(2);
-                    System.out.println("# = "+""+ o++);
+                    System.out.println("# = "+""+ i);
 
                   //  driver.findElement(By.xpath("(//button[@type='button'])[18]")).click();
                   //  TimeUnit.SECONDS.sleep(2);
@@ -117,6 +117,8 @@ public class Deliver_register {
                 }
             }
         }
+
+
 
 
 
