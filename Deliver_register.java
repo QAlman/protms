@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
 
-public class Deliver_register {
+public class Deliver_reg {
 
     long  start = System.currentTimeMillis();
     private WebDriver driver;
@@ -30,95 +30,92 @@ public class Deliver_register {
         //driver.manage().window().setSize(new Dimension(800,600)); //1
         driver.manage().window().maximize(); //2
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            }
+    }
 
-            @Test
-            public void testUntitledTestCase() throws Exception {
-
-
-                 int  i ;
-                 int p = 1999;
-                 for (i =1; i < 10000; i++) {
+    @Test
+    public void testUntitledTestCase() throws Exception {
 
 
-                    driver.get(baseUrl);
-                    TimeUnit.SECONDS.sleep(1);
-
-                    driver.findElement(By.id("mainBtn")).click();
-                    TimeUnit.SECONDS.sleep(1);
-                    driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/form/div/input")).clear();
-                    TimeUnit.SECONDS.sleep(1);
-                    driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/form/div/input")).sendKeys("925444" + p++);
-                    TimeUnit.SECONDS.sleep(2);
-                    driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/form/span/button")).click();
-                    TimeUnit.SECONDS.sleep(2);
-
-                  //  driver.findElement(By.name("code")).click();
-                  // TimeUnit.SECONDS.sleep(2);
-                   // driver.findElement(By.name("code")).clear();
-                   // TimeUnit.SECONDS.sleep(2);
-                    driver.findElement(By.name("code")).sendKeys("1111");
-                    TimeUnit.SECONDS.sleep(2);
-                    driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/form/span/button")).click();
-                    TimeUnit.SECONDS.sleep(2);
-                    driver.findElement(By.xpath("//button[@type='button']")).click();
-                    TimeUnit.SECONDS.sleep(2);
-                    System.out.println("# = "+""+ i);
-
-                  //  driver.findElement(By.xpath("(//button[@type='button'])[18]")).click();
-                  //  TimeUnit.SECONDS.sleep(2);
+        int  i ;
+        int p = 1999;
+        for (i =1; i < 10000; i++) {
 
 
-                }
+            driver.get(baseUrl);
+            TimeUnit.SECONDS.sleep(1);
 
-                driver.close();
+            driver.findElement(By.id("mainBtn")).click();
+            TimeUnit.SECONDS.sleep(1);
+            driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/div[2]/form/div/input")).clear();
+            TimeUnit.SECONDS.sleep(1);
+            driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/div[2]/form/div/input")).sendKeys("9254442018");
+            TimeUnit.SECONDS.sleep(1);
+            driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/div[2]/form/span/button")).click();
+            TimeUnit.SECONDS.sleep(2);
 
-            }
+            //  driver.findElement(By.name("code")).click();
+            // TimeUnit.SECONDS.sleep(2);
+            // driver.findElement(By.name("code")).clear();
+            // TimeUnit.SECONDS.sleep(2);
+            driver.findElement(By.name("code")).sendKeys("1111");
+            TimeUnit.SECONDS.sleep(2);
+            driver.findElement(By.xpath("//*[@id='app']/div/div[1]/main/div/div[2]/form/span/button")).click();
+            TimeUnit.SECONDS.sleep(2);
+            driver.findElement(By.xpath("//button[@type='button']")).click();
+            TimeUnit.SECONDS.sleep(2);
+            System.out.println("# = "+""+ i);
 
-            @After
-            public void tearDown() throws Exception {
-                driver.quit();
-                String verificationErrorString = verificationErrors.toString();
-                if (!"".equals(verificationErrorString)) {
-                    fail(verificationErrorString);
-                }
-            }
+            //  driver.findElement(By.xpath("(//button[@type='button'])[18]")).click();
+            //  TimeUnit.SECONDS.sleep(2);
 
-            private boolean isElementPresent(By by) {
-                try {
-                    driver.findElement(by);
-                    return true;
-                } catch (NoSuchElementException e) {
-                    return false;
-                }
-            }
 
-            private boolean isAlertPresent() {
-                try {
-                    driver.switchTo().alert();
-                    return true;
-                } catch (NoAlertPresentException e) {
-                    return false;
-                }
-            }
-
-            private String closeAlertAndGetItsText() {
-                try {
-                    Alert alert = driver.switchTo().alert();
-                    String alertText = alert.getText();
-                    if (acceptNextAlert) {
-                        alert.accept();
-                    } else {
-                        alert.dismiss();
-                    }
-                    return alertText;
-                } finally {
-                    acceptNextAlert = true;
-                }
-            }
         }
 
+        driver.close();
 
+    }
 
+    @After
+    public void tearDown() throws Exception {
+        driver.quit();
+        String verificationErrorString = verificationErrors.toString();
+        if (!"".equals(verificationErrorString)) {
+            fail(verificationErrorString);
+        }
+    }
+
+    private boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    private boolean isAlertPresent() {
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
+    private String closeAlertAndGetItsText() {
+        try {
+            Alert alert = driver.switchTo().alert();
+            String alertText = alert.getText();
+            if (acceptNextAlert) {
+                alert.accept();
+            } else {
+                alert.dismiss();
+            }
+            return alertText;
+        } finally {
+            acceptNextAlert = true;
+        }
+    }
+}
 
 
